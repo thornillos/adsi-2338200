@@ -1,0 +1,58 @@
+body {
+    background: linear-gradient(#c1cae4,#47a2d0);
+    font-family: verdana;
+    font-weight: 400;
+    color: #f1cc5a;
+    height: 100vh;
+}
+main {
+    margin: 20px auto;
+    width: 380px;
+}
+main h1 {
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 4px solid #f1cc5a;
+}
+main nav.menu {
+    list-style: none;
+}
+main nav.menu li a:link,
+main nav.menu li a:visited {
+    background-color: #47a2d0;
+    border: 4px solid #000001;
+    border-radius: 0px 6px 30px 0px;
+    display: block;
+    color: #c1cae4;
+    margin-bottom: 25px;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    text-indent: 40px;
+}
+main nav.menu li a span {
+    background-color: #ada363;
+    border-radius: 50%;
+    border: 4px solid #000001;
+    font-weight: 600;
+    font-size: 2rem;
+    display: block;
+    padding: 20px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    line-height: 1.6rem;
+    top: -20px; left: -20px;
+    text-indent: -12px;
+    transition: all 0.2s ease-in;
+}
+main nav.menu li a:hover {
+    color #fff
+}
+    main nav.menu li a:hover span {
+        background-color: #fff;
+        color: #08313b;
+        transform: rotate(360deg) scale(1.2);
+    }
+
