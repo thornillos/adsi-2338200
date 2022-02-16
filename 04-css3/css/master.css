@@ -2,13 +2,15 @@ body {
     background: linear-gradient(#c1cae4,#47a2d0);
     font-family: verdana;
     font-weight: 400;
-    color: #f1cc5a;
+    color: #000001;
     margin: 0px;
     min-height: 100vh;
 }
 main {
     border-radius: 6px;
     padding: 20px;
+    margin: 0 auto;
+    width: 80%;
 }
 main header h1 {
     background-color: #47a2d0;
@@ -27,5 +29,11 @@ main header h1 a:visited {
     transition: all 0.2s ease-in;
 }
 main header h1 a:hover {
-    
+    transform: translateX(-6px);
+}
+main section h2 {
+    border-bottom: 4px dotted #08313b;
+    font-size: 1.4rem;
+    padding-bottom: 10px;
+    text-align: center;
 }
