@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Gradient</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+        div.box {
+            border: 2px solid #08313b;
+            height: 200px;
+            margin: 20px auto;
+            width: 380px;
+        }
+        div.box1 {
+            background: linear-gradient(to top, #089975, #441d8b);
+        }
+        div.box2 {
+            background: linear-gradient(45deg, #089975, #441d8b);
+        }
+        div.box3 {
+            background: linear-gradient(to top, red 25%, blue 25%, blue 50%, yellow 50%);
+        }
+        div.box4 {
+            background: linear-gradient(to right, orange 50%, yellow 50%);
+            background-size: 20px 100%;
+        }
+        div.box5 {
+            background: radial-gradient(circle, #c1cae4, #000);
+        }
+        div.box6 {
+            background: radial-gradient(circle, red 10%, #000 10%, #000 20%, #fff 20%, #fff 30%, #000 30%, #000 40%, #fff 40%, #fff 50%, #000 50%, #000 60%, #fff 60%, #fff 60%);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="index.html">⬅</a>Background Gradient</h1>
+        </header>
+        <section>
+            <h2>linear-gradient(to top, color1, color2)</h2>
+            <div class="box box1"></div>
+            <h2>linear-gradient(45deg, yellow, green)</h2>
+            <div class="box box2"></div>
+            <h2>colombian flag</h2>
+            <div class="box box3"></div>
+            <h2>vertical lines</h2>
+            <div class="box box4"></div>
+            <h2>radial-gradient(circle, peru, crimson)</h2>
+            <div class="box box5"></div>
+            <h2>target shoot</h2>
+            <div class="box box6"></div>
+        </section>
+    </main>
+</body>
+</html>
