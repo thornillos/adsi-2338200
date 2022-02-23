@@ -3,7 +3,7 @@ body {
     font-family: verdana;
     font-weight: 400;
     color: #f1cc5a;
-    height: 100vh;
+    height: 140vh;
 }
 main {
     margin: 20px auto;
@@ -50,9 +50,9 @@ main nav.menu li a span {
 main nav.menu li a:hover {
     color #fff
 }
-    main nav.menu li a:hover span {
-        background-color: #fff;
-        color: #08313b;
-        transform: rotate(360deg) scale(1.2);
-    }
+main nav.menu li a:hover span {
+    background-color: #fff;
+    color: #08313b;
+    transform: rotate(360deg) scale(1.2);
+}
 
