@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods Object</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        figure {
+            text-align: center;
+        }
+        li {
+            border-top: 1px solid #aa0;
+            margin: 4px 40px;
+        }
+        li :first-child {
+            border-top: 1px solid #aa0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Methods Object</h1>
+        </header>
+        <section>
+            <h3 class="tname"></h3>
+            <figure>
+            <img src="" class="timage">
+            </figure>
+            <ol class="tmoves"></ol>
+        </section>
+    </main>
+    <script>
+        // Elements
+        let tname = document.querySelector('h3.tname')
+        let timage = document.querySelector('img.timage')
+        let tmoves = document.querySelector('ol.tmoves')
+        // Objects
+        const pokemon = {
+            // atributes
+            name: 'Galbantula',
+            type: 'Bug',
+            hp: 130,
+            image: 'https://www.serebii.net/pokemongo/pokemon/596.png',
+            // Methods
+            feed: function() {
+                this.hp += 10
+            },
+            attack: function() {
+                if (this.hp <= 0) {
+                    return this.name + ' Its Dead'
+                } else {
+                    this.hp -= 10
+                }
+            }
+        }
+        // Output
+        tname.innerText = pokemon.name
+        timage.setAttribute('src', pokemon.image)
+        tmoves.innerHTML = '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        tmoves.innerHTML += '<li> was attacked! </li>'
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.feed()
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        tmoves.innerHTML += '<li> was attacked! </li>'
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        tmoves.innerHTML += '<li> was attacked! </li>'
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.feed()
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        pokemon.attack()
+        tmoves.innerHTML += '<li> was attacked! </li>'
+        tmoves.innerHTML += '<li> hp: '+pokemon.hp+'</li>'
+        tmoves.innerHTML += '<li> hp: '+pokemon.attack()+'</li>'
+    </script>
+    
+</body>
+</html>
