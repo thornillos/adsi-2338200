@@ -1,0 +1,10 @@
+<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="1" y="1" width="68" height="68" rx="19" fill="#9A9B96" stroke="black" stroke-width="2"/>
+<path d="M3 67.48H67V3.48H3V67.48Z" fill="url(#pattern0)"/>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_3_58" transform="scale(0.015625)"/>
+</pattern>
+<image id="image0_3_58" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAvElEQVR42u3buw2DMBRG4SvhkmfSJdBbgooN6ACJVZggEpMkS0QMBJkgj55cKRvElcX5pLPALxe3sezZJmIEAAAAAAAAAAAAP5E2apN28azJGDPGcRyJg1x7apuPJUnyKsuyEAcnbfV1gCzLHlVVnV0HWHwdIE3TVV8AAzAAAzAAA+xyAD2CnAfItXcQBJuP6R3wsdYW8q8wDA91XV+HYZi7rrv7VN/3c9u2t6ZpjgIAAAAAAAAAAAC+kMsXPxtLnNXmFVcAAAAASUVORK5CYII="/>
+</defs>
+</svg>
