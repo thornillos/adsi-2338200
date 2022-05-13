@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opr Arithmetics</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+       table.operators {
+          display: block;
+          border-collapse: collapse;
+          margin: 20px auto;
+          width: 400px;
+       }
+       table thead th {
+          background-color: rgba(132, 45, 45, 0.848);
+       }
+       table th,
+       table td {
+          background-color: #fffc;
+          border: 1px solid #333;
+          color: #333;
+          padding: 6px auto;
+       }
+       table thead input {
+          border: none;
+          border-radius: 20px;
+          outline: none;
+          font-family: Verdana;
+          padding: 4px;
+          width: 120px; 
+       }
+       table tbody td:first-child {
+          font-size: 1rem;
+          text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Opr Arithmetics</h1>
+        </header>
+        <section>
+           <table class="operators">
+               <thead>
+                  <tr>
+                     <th colspan="5"><input type="number" placeholder="Y value">
+                     </th>
+                  </tr>
+                  <tr>
+                     <th>operator</th>
+                     <th>description</th>
+                     <th>example</th>
+                     <th>result  y</th>
+                     <th>result X</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>+</td>
+                     <td>Addition</td>
+                     <td>x=y+2</td>
+                     <td class="rx1"></td>
+                     <td class="ry1"></td>
+                  </tr>
+                  <tr>
+                     <td>-</td>
+                     <td>substraction</td>
+                     <td>x=y-2</td>
+                     <td class="rx2"></td>
+                     <td class="ry2"></td>
+                  </tr>
+               </tbody>
+           </table>
+        </section>
+    </main>
+    
+</body>
+</html>
