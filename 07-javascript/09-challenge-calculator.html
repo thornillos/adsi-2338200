@@ -128,23 +128,23 @@
                 <section class="buttons">
                     <button class="btn-clear"></button>
                     <button class="btn-back"></button>
-                    <button class="btn-pow" data-opr="^"></button>
-                    <button class="btn-mod" data-opr="%"></button>
-                    <button class="btn-7" data-num="7"></button>
-                    <button class="btn-8" data-num="8"></button>
-                    <button class="btn-9" data-num="9"></button>
-                    <button class="btn-prod" data-opr="*"></button>
-                    <button class="btn-4" data-num="4"></button>
-                    <button class="btn-5" data-num="5"></button>
-                    <button class="btn-6" data-num="6"></button>
-                    <button class="btn-subs" data-opr="-"></button>
-                    <button class="btn-1" data-num="1"></button>
-                    <button class="btn-2" data-num="2"></button>
-                    <button class="btn-3" data-num="3"></button>
-                    <button class="btn-add" data-opr="+"></button>
-                    <button class="btn-div" data-opr="/"></button>
-                    <button class="btn-0" data-num="0"></button>
-                    <button class="btn-dot" data-opr="."></button>
+                    <button class="btn-pow"></button>
+                    <button class="btn-mod"></button>
+                    <button class="btn-7"></button>
+                    <button class="btn-8"></button>
+                    <button class="btn-9"></button>
+                    <button class="btn-prod"></button>
+                    <button class="btn-4"></button>
+                    <button class="btn-5"></button>
+                    <button class="btn-6"></button>
+                    <button class="btn-subs"></button>
+                    <button class="btn-1"></button>
+                    <button class="btn-2"></button>
+                    <button class="btn-3"></button>
+                    <button class="btn-add"></button>
+                    <button class="btn-div"></button>
+                    <button class="btn-0"></button>
+                    <button class="btn-dot"></button>
                     <button class="btn-equal"></button>
                 </section>
             </div>
@@ -152,43 +152,164 @@
     </main>
     <script>
         //Value in display
-        const display = document.querySelector('input.value')
+        const disValue = document.querySelector('input.value')
         //buttons
         const btnClear = document.querySelector('button.btn-clear')
         const btnBack  = document.querySelector('button.btn-back')
         const btnEqual = document.querySelector('button.btn-equal')
-        //all numbres & operators
-        const btnsNumbers = document.querySelectorAll('button[data-num]')
-        const btnsOperators = document.querySelectorAll('button[data-opr]')
-        //activar click
+        //All
+        const btnsNumbers =document.querySelectorAll ("button[data-num]")
+        const btnsOperation =document.querySelectorAll ("button[data-opr]")
+       //logic
+       var operStatus = false
+        //activete
         for (let i = 0; i < btnsNumbers.length; i++) {
-            btnsNumbers[i].onclick = function() {
-                addToDisplay(this.getAttribute("data-num"))
-            };
+            btnsNumbers[i].onclick = function(){
+                 operStatus = true
+                 addToDisplay(this.getAttribute("data-num"))
+                
+            }
+            
         }
-        for (let i = 0; i < btnsOperators.length; i++) {
-            btnsOperators[i].onclick = function() { 
+        for (let i = 0; i < btnsOperation.length; i++) {
+            btnsOperation[i].onclick = function(){
+                if (operStatus){
                 addToDisplay(this.getAttribute("data-opr"))
-            };
-        }
-        //Actions
-        btnClear.onclick = () => {
-            display.value =''
-        }
-        btnBack.onclick = () => {
-            display.value = display.value.slice(0, -1)
-        }
-        
-        //Functions
-        function addToDisplay(c){
-            if(validateLength()){
-                display.value += c
+                operStatus = false
+                }
+                //Events
+        document.onkeyup = (evt) =>{
+            //alert(evt.keyCode)
+            switch (evt.keyCode) {
+            //Operators
+            case 8: 
+                    deleteLastValue()
+                    break;
+                case 46: 
+                claerDisplay()
+                    break;
+                case 96:
+                case 48:
+                    addToDisplay(0)
+                    break;
+                case 97:
+                case 49:
+                    addToDisplay(1)
+                    break;
+                case 98:
+                case 50:
+                    addToDisplay(2)
+                    break;
+                case 99:
+                case 51:
+                    addToDisplay(3)
+                    break;
+                case 100:
+                case 52:
+                    addToDisplay(4)
+                    break;
+                case 101:
+                case 53:
+                    if (evt.shiftKey) {
+                        addToDisplay('%')
+                    }else{
+                    addToDisplay(5)
+                    }
+                    break;
+                case 102:
+                case 54:
+                    addToDisplay(6)
+                    break;
+                case 103:
+                case 55:
+                    if(evt.shiftKey){
+                        addToDisplay('/')
+                    }else{
+                    addToDisplay(7)
+                    }
+                    break;
+                case 111: 
+                    addToDisplay('/')
+                    break;
+                case 104:
+                case 56:
+                    addToDisplay(8)
+                    break;
+                case 105:
+                case 57:
+                    addToDisplay(9)
+                    break;
+                case 106:
+                    addToDisplay('*')
+                    break;
+                case 67:
+                     claerDisplay()
+                break;
+                case 187: 
+                case 107:
+                    if(evt.shiftKey){
+                        addToDisplay('*')
+                    } else{
+                        addToDisplay('+')
+                    }
+                    break;
+                case 190:
+                    addToDisplay('.')
+                    break;
+                case 110:
+                    addToDisplay('.')
+                break;
+                default:
+                    break;
+                case 222:
+                    if (evt.ctrlKey && evt.altKey) {
+                        addToDisplay('^')
+                    }
+                    break;
+                case 189: 
+                case 109:
+                    addToDisplay('-')
+                    break;
+                case 13:
+                    igual.onclick()
+                    break;
             }
         }
+        btnClear.onclick = () => {
+            clearDisplay()
+        }
+        btnBack.onclick = () => {
+            deleteLastValue()
+        }
+        btnEqual.onclick = () => {
+            var operacion  = display.value;
+            if(operacion.trim() != "")
+            operacion = operacion.replace("^", "**");
+            operacion = eval(operacion)
+            display.value = operacion
+            
+        }
+        function clearDisplay(){
+            display.value = ''
+            operStatus = false
+        }
+        function deleteLastValue(){
+            display.value = display.value.slice(0, -1)
+            if(isNaN(display.value.slice(-1))){
+                operStatus = false
+            }else{
+                operStatus = true
+            }
+        }
+        function addToDisplay(c) {
+            if(validateLength()){
+                display.value +=c 
+            }
+        } 
         function validateLength() {
-            if(display.value.length < 36) {
+            if(display.value.length < 11){
                 return true
-            } else {
+            }else{
                 return false
             }
         }
