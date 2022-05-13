@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical</title>
+    <link rel="stylesheet" href="css/menu.css">
+    
+<style>
+   table.Operators {
+       font-size: 0.9rem;
+       border-collapse: collapse;
+       margin: 20px auto;
+       width: 400px;
+   }
+   table thead th {
+       background-color: rgba(220, 27, 27, 0.607);
+       color:black;
+   }
+   table th,
+   table td {
+       background-color: aliceblue;
+       padding: 6px;
+       color: black;
+       border: 1px solid black;
+   }
+   table thead input {
+       border: none;
+       border-radius: 20px;
+       outline: none;
+       font-family: Poppins;
+       padding: 4px;
+       width: 120px;
+   }
+   table tbody td:first-child {
+       font-size: 1.1rem;
+       text-align: center;
+   }
+   table tbody tr:nth-child(even) td {
+       background-color: rgba(255, 255, 255, 0.692);
+   }
+</style>
+</head>
+<body>
+<main>
+   <header>
+       <a href="index.html">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+             </svg>
+       </a>
+       <h1>Logical</h1>
+   </header>
+   <section>
+       <table class="Operators">
+           <thead>
+               <tr>
+                   <th colspan="4">
+                       <input type="number" placeholder="X value">
+                       <input type="number" placeholder="Y value">
+                   </th>
+               </tr>
+               <tr>
+                   <th>operator</th>
+                   <th>Description</th>
+                   <th>Example</th>
+                   <th>Result</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>&&</td>
+                   <td>AND</td>
+                   <td>(x<10 && y>1)</td>
+                   <td class="rs"></td>      
+               </tr>
+               <tr>
+                  <td>||</td>
+                  <td>OR</td>
+                  <td>(x==5 || y==5)</td>
+                  <td class="rs"></td>      
+               </tr>
+               <tr>
+                  <td>!</td>
+                  <td>NOT</td>
+                  <td>!(x==y)</td>
+                  <td class="rs"></td>      
+               </tr>
+           </tbody>
+       </table>
+   </section>
+   </nav>
+</main>
+    <script>
+       //results
+       const rss = document.querySelectorAll('td.rs')
+       const input = document.querySelectorAll('input')
+       //events
+       input[1].oninput = () => {
+         if(input[0].value != '' && input[1].value != '') {
+            if (input[1].value.length < 4) {
+          //&&
+          rss[0].innerText = (parseInt(input[0].value)< 10 && parseInt(input[1].value) < 1)
+          //||
+          rss[1].innerText = (parseInt(input[0].value) == 5 || parseInt(input[1].value) == 5)
+          //!
+          rss[2].innerText = !(parseInt(input[0].value) == parseInt(input[1].value))
+         } else {
+            input[1].value = input[1].value.slice(0,-1)
+         }
+       } else {
+          for (let i = 0; i < ry.length; i++) {
+             rx[i].innerText = ''
+             ry[i].innerText = ''
+          }
+       }
+       }
+    </script>
+    
+</body>
+</html>

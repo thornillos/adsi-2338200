@@ -6,81 +6,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opr Arithmetics</title>
     <link rel="stylesheet" href="css/menu.css">
-    <style>
-       table.operators {
-          display: block;
-          border-collapse: collapse;
-          margin: 20px auto;
-          width: 400px;
-       }
-       table thead th {
-          background-color: rgba(132, 45, 45, 0.848);
-       }
-       table th,
-       table td {
-          background-color: #fffc;
-          border: 1px solid #333;
-          color: #333;
-          padding: 6px auto;
-       }
-       table thead input {
-          border: none;
-          border-radius: 20px;
-          outline: none;
-          font-family: Verdana;
-          padding: 4px;
-          width: 120px; 
-       }
-       table tbody td:first-child {
-          font-size: 1rem;
-          text-align: center;
-       }
-    </style>
+    
+<style>
+   table.Operators {
+       font-size: 0.9rem;
+       border-collapse: collapse;
+       margin: 20px auto;
+       width: 400px;
+   }
+   table thead th {
+       background-color: rgba(220, 27, 27, 0.607);
+       color:black;
+   }
+   table th,
+   table td {
+       background-color: aliceblue;
+       padding: 6px;
+       color: black;
+       border: 1px solid black;
+   }
+   table thead input {
+       border: none;
+       border-radius: 20px;
+       outline: none;
+       font-family: Poppins;
+       padding: 4px;
+       width: 120px;
+   }
+   table tbody td:first-child {
+       font-size: 1.1rem;
+       text-align: center;
+   }
+   table tbody tr:nth-child(even) td {
+       background-color: rgba(255, 255, 255, 0.692);
+   }
+</style>
 </head>
 <body>
-    <main>
-        <header>
-            <a href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-            </a>
-            <h1>Opr Arithmetics</h1>
-        </header>
-        <section>
-           <table class="operators">
-               <thead>
-                  <tr>
-                     <th colspan="5"><input type="number" placeholder="Y value">
-                     </th>
-                  </tr>
-                  <tr>
-                     <th>operator</th>
-                     <th>description</th>
-                     <th>example</th>
-                     <th>result  y</th>
-                     <th>result X</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td>+</td>
-                     <td>Addition</td>
-                     <td>x=y+2</td>
-                     <td class="rx1"></td>
-                     <td class="ry1"></td>
-                  </tr>
-                  <tr>
-                     <td>-</td>
-                     <td>substraction</td>
-                     <td>x=y-2</td>
-                     <td class="rx2"></td>
-                     <td class="ry2"></td>
-                  </tr>
-               </tbody>
-           </table>
-        </section>
-    </main>
+<main>
+   <header>
+       <a href="index.html">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+             </svg>
+       </a>
+       <h1>opr arithmetics</h1>
+   </header>
+   <section>
+       <table class="Operators">
+           <thead>
+               <tr>
+                   <th colspan="5">
+                       <input type="number" placeholder="Y value">
+                   </th>
+               </tr>
+               <tr>
+                   <th>operator</th>
+                   <th>Descripcion</th>
+                   <th>Example</th>
+                   <th>Result X</th>
+                   <th>Result Y</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>+</td>
+                   <td>addition</td>
+                   <td>x=y+2</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>      
+               </tr>
+               <tr>
+                   <td>-</td>
+                   <td>subtraction</td>
+                   <td>x=y-2</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>*</td>
+                   <td>Product</td>
+                   <td>x=y*2</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>/</td>
+                   <td>Divition</td>
+                   <td>x=y/2</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>%</td>
+                   <td>Modulus</td>
+                   <td>x=y%2</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>++</td>
+                   <td>increment(pre)</td>
+                   <td>x=++y</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>++</td>
+                   <td>increment(pos)</td>
+                   <td>x=y++</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>--</td>
+                   <td>decrement(pre)</td>
+                   <td>x=--y</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+               <tr>
+                   <td>--</td>
+                   <td>decrement(pos)</td>
+                   <td>x=y--</td>
+                   <td class="rx"></td>
+                   <td class="ry"></td>   
+               </tr>
+           </tbody>
+       </table>
+   </section>
+   </nav>
+</main>
+    <script>
+       //results
+       const rx = document.querySelectorAll('td.rx')
+       const ry = document.querySelectorAll('td.ry')
+       const input = document.querySelector('input')
+       //events
+       input.oninput = () => {
+         if(input.value != '' && input.value.length < 4) {
+            if (input.value.length < 4) {
+          //adition +
+          rx[0].innerText = parseInt(input.value)
+          ry[0].innerText = parseInt(input.value) + 2
+          //substraction -
+          rx[1].innerText = parseInt(input.value)
+          ry[1].innerText = parseInt(input.value) - 2
+          //product *
+          rx[2].innerText = parseInt(input.value)
+          ry[2].innerText = parseInt(input.value) * 2
+          //division /
+          rx[3].innerText = parseInt(input.value)
+          ry[3].innerText = parseInt(input.value) / 2
+          //modulus %
+          rx[4].innerText = parseInt(input.value)
+          ry[4].innerText = parseInt(input.value) % 2
+          //increment (pre)
+          let y = parseInt(input.value)
+          rx[5].innerText = y
+          ry[5].innerText = ++y
+          //increment(post)
+          y = parseInt(input.value)
+          rx[6].innerText = y
+          ry[6].innerText = y++
+          //decrement (pre)
+          y = parseInt(input.value)
+          rx[7].innerText = y
+          ry[7].innerText = --y
+          //decrement(post)
+          y = parseInt(input.value)
+          rx[8].innerText = y
+          ry[8].innerText = y--
+         } else {
+            input.value = input.value.slice(0,-1)
+         }
+       } else {
+          for (let i = 0; i < ry.length; i++) {
+             rx[i].innerText = ''
+             ry[i].innerText = ''
+          }
+       }
+       }
+    </script>
     
 </body>
 </html>
