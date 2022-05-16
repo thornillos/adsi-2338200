@@ -53,89 +53,93 @@
        <h1>Assignment</h1>
    </header>
    <section>
-       <table class="Operators">
-           <thead>
-               <tr>
-                   <th colspan="4">
-                       <input type="number" placeholder="Y value">
-                   </th>
-               </tr>
-               <tr>
-                   <th>operator</th>
-                   <th>Example</th>
-                   <th>Equal</th>
-                   <th>Result</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr>
-                   <td>=</td>
-                   <td>x=y</td>
-                   <td class="eq">x=y</td>
-                   <td class="rs"></td>      
-               </tr>
-               <tr>
-                  <td>+=</td>
-                  <td>x+=y</td>
-                  <td class="eq">x=x+y</td>
-                  <td class="rs"></td>      
-              </tr>
-              <tr>
-               <td>-=</td>
-               <td>x-=y</td>
-               <td class="eq">x=x-y</td>
-               <td class="rs"></td>      
-             </tr>
-             <tr>
-               <td>-=</td>
-               <td>x*=y</td>
-               <td class="eq">x=x/y</td>
-               <td class="rs"></td>      
-             </tr>
-             <tr>
-               <td>/=</td>
-               <td>x/=y</td>
-               <td class="eq">x=x%y</td>
-               <td class="rs"></td>      
+    <table class="operators">
+        <thead>
+            <tr>
+                <th colspan="4">
+                    <input type="number" placeholder="Y Value">
+                </th>
             </tr>
-           </tbody>
-       </table>
-   </section>
-   </nav>
+            <tr>
+                <th>Operator</th>
+                <th>Example</th>
+                <th>Equal</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>=</td>
+                <td>x=y</td>
+                <td class="eq"></td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>+=</td>
+                <td>x+=y</td>
+                <td class="eq">x=x+y</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>-=</td>
+                <td>x-=y</td>
+                <td class="eq">x=x-y</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>-=</td>
+                <td>x*=y</td>
+                <td class="eq">x=x*y</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>/=</td>
+                <td>x/=y</td>
+                <td class="eq">x=x/y</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>%=</td>
+                <td>x%=y</td>
+                <td class="eq">x=x%y</td>
+                <td class="rs"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 </main>
-    <script>
-       //results
-       const eqs = document.querySelectorAll('td.eq')
-       const rss = document.querySelectorAll('td.rs')
-       const input = document.querySelector('input')
-       //events
-       input.oninput = () => {
-         if(input.value != '' && input.value.length < 4) {
-            if (input.value.length < 4) {
-          //=
-          eq[0].innerText = 'x=' + input.value
-          rss[0].innerText = parseInt(input.value)
-          //+=
-          rss[1].innerText = 10 + parseInt(input.value)
-          //-=
-          rss[2].innerText = 10 - parseInt(input.value)
-          //*=
-          rss[3].innerText = 10 * parseInt(input.value)
-          //*=
-          rss[4].innerText = 10 / parseInt(input.value)
-          //*=
-          rss[5].innerText = 10 % parseInt(input.value)
-          
-         } else {
+<script>
+// results
+const eqs   = document.querySelectorAll('td.eq')
+const rss   = document.querySelectorAll('td.rs')
+const input = document.querySelector('input')
+// Events
+input.oninput = () => {
+    if (input.value != '') {
+        if (input.value.length < 4) {
+            // =
+            eqs[0].innerText = 'x=' + input.value
+            rss[0].innerText = parseInt(input.value)
+            // +=
+            rss[1].innerText = 10 + parseInt(input.value)
+            // -=
+            rss[2].innerText = 10 - parseInt(input.value)
+            // *=
+            rss[3].innerText = 10 * parseInt(input.value)
+            // /=
+            rss[4].innerText = 10 / parseInt(input.value)
+            // %=
+            rss[5].innerText = 10 % parseInt(input.value)
+        } else {
             input.value = input.value.slice(0,-1)
-         }
-       } else {
-          for (let i = 0; i < ry.length; i++) {
-             rx[i].innerText = ''
-             ry[i].innerText = ''
-          }
-       }
-       }
+        }
+    } else {
+        eqs[0].innerText = ''
+        for (let i = 0; i < rss.length; i++) {
+            rss[i].innerText = ''
+        }
+    }
+}
     </script>
     
 </body>

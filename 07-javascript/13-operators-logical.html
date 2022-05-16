@@ -53,69 +53,93 @@
        <h1>Logical</h1>
    </header>
    <section>
-       <table class="Operators">
-           <thead>
-               <tr>
-                   <th colspan="4">
-                       <input type="number" placeholder="X value">
-                       <input type="number" placeholder="Y value">
-                   </th>
-               </tr>
-               <tr>
-                   <th>operator</th>
-                   <th>Description</th>
-                   <th>Example</th>
-                   <th>Result</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr>
-                   <td>&&</td>
-                   <td>AND</td>
-                   <td>(x<10 && y>1)</td>
-                   <td class="rs"></td>      
-               </tr>
-               <tr>
-                  <td>||</td>
-                  <td>OR</td>
-                  <td>(x==5 || y==5)</td>
-                  <td class="rs"></td>      
-               </tr>
-               <tr>
-                  <td>!</td>
-                  <td>NOT</td>
-                  <td>!(x==y)</td>
-                  <td class="rs"></td>      
-               </tr>
-           </tbody>
-       </table>
-   </section>
-   </nav>
+    <table class="operators">
+        <thead>
+            <tr>
+                <th colspan="4">
+                    <input type="number" placeholder="X Value">
+                    <input type="number" placeholder="Y Value">
+                </th>
+            </tr>
+            <tr>
+                <th>Operator</th>
+                <th>Description</th>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&&</td>
+                <td>AND</td>
+                <td>(x<10 && y>1)</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>OR</td>
+                <td>(x==5 || y==5)</td>
+                <td class="rs"></td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>NOT</td>
+                <td>!(x==y)</td>
+                <td class="rs"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 </main>
-    <script>
-       //results
-       const rss = document.querySelectorAll('td.rs')
-       const input = document.querySelectorAll('input')
-       //events
-       input[1].oninput = () => {
-         if(input[0].value != '' && input[1].value != '') {
-            if (input[1].value.length < 4) {
-          //&&
-          rss[0].innerText = (parseInt(input[0].value)< 10 && parseInt(input[1].value) < 1)
-          //||
-          rss[1].innerText = (parseInt(input[0].value) == 5 || parseInt(input[1].value) == 5)
-          //!
-          rss[2].innerText = !(parseInt(input[0].value) == parseInt(input[1].value))
-         } else {
+<script>
+// results
+const rss   = document.querySelectorAll('td.rs')
+const input = document.querySelectorAll('input')
+// Events
+input[0].oninput = () => {
+    if (input[0].value != '' && input[1].value != '') {
+        if (input[0].value.length < 4) {
+            // &&
+            rss[0].innerText = (parseInt(input[0].value) < 10 && 
+                                parseInt(input[1].value) > 1)
+            // ||
+            rss[1].innerText = (parseInt(input[0].value) == 5 ||
+                                parseInt(input[1].value) == 5)
+            // !
+            rss[2].innerText = !(parseInt(input[0].value) ==
+                                parseInt(input[1].value))
+
+        } else {
+            input[0].value = input[0].value.slice(0,-1)
+        }
+    } else {
+        for (let i = 0; i < rss.length; i++) {
+            rss[i].innerText = ''
+        }
+    }
+}
+input[1].oninput = () => {
+    if (input[0].value != '' && input[1].value != '') {
+        if (input[1].value.length < 4) {
+            // &&
+            rss[0].innerText = (parseInt(input[0].value) < 10 && 
+                                parseInt(input[1].value) > 1)
+            // ||
+            rss[1].innerText = (parseInt(input[0].value) == 5 ||
+                                parseInt(input[1].value) == 5)
+            // !
+            rss[2].innerText = !(parseInt(input[0].value) ==
+                                parseInt(input[1].value))
+
+        } else {
             input[1].value = input[1].value.slice(0,-1)
-         }
-       } else {
-          for (let i = 0; i < ry.length; i++) {
-             rx[i].innerText = ''
-             ry[i].innerText = ''
-          }
-       }
-       }
+        }
+    } else {
+        for (let i = 0; i < rss.length; i++) {
+            rss[i].innerText = ''
+        }
+    }
+}
     </script>
     
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Conditional</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        section.buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            row-gap: 15px;
+            column-gap: 15px;
+            margin: 10px 0;
+            margin-left: 10px;
+            
+        }
+        section.buttons button {
+            border: none;
+            cursor: pointer;
+            height: 60px;
+            width: 60px;
+            transition: transform 0.2s ease;
+        }
+        section.buttons button:hover{
+            transform: scale(1.10);
+        }
+        section.buttons button.men{
+            background: url(images/conditionals/men.svg) no-repeat center;
+        }
+        section.buttons button.women {
+            background: url(images/conditionals/women.svg) no-repeat center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Challenge Conditional</h1>
+        </header>
+        <section>
+            <div class="conditionals">
+                <header>
+
+                </header>
+                <section class="buttons">
+                    <button class="men"></button>
+                    <button class="women"></button>
+                </section>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

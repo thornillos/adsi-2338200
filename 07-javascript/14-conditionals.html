@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        input, button {
+            border: none;
+            border-radius: 20px;
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            background-color: #aa0;
+            cursor: pointer;
+            font-family: verdana;
+            font-size: 0.8rem;
+            color: #fff;
+            width: 220px;
+        }
+        hr {
+            margin-top: 20px;
+            border: 1px solid;
+        }
+        h3.alert {
+            background-color: #aa0;
+            border: 2px dotted #fff;
+            color: black;
+            margin: 20px 10px;
+            padding: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Conditionals</h1>
+        </header>
+        <section>
+            <h3>How much is: 4*5/2 ?</h3>
+            <input type="number" class="answer">
+            <button>Validate</button>
+            <hr>
+            <h3 class="alert">
+
+            </h3>
+        </section>
+    </main>
+    <script>
+        //Elements
+        const answer = document.querySelector('input')
+        const button = document.querySelector('button')
+        const msj = document.querySelector('h3.alert')
+        //actions
+        button.onclick = () => {
+            let val = answer.value;
+            //conditional
+            if (val != '') {
+                if (parseInt(val) === 10) {
+                    alert('Congratulations: Its correct !')
+                } else {
+                    alert('Sorry: Its incorrect!')
+                }
+            } else {
+                alert('Please, Enter answer')
+            }
+        }
+        //------------
+        var today = new Date
+        switch(today.getDay()) {
+            case 1:
+                msj.innerText = 'Today is: Monday😿'
+                break;
+            case 2:
+                msj.innerText = 'Today is: Tuesday🤥'
+                break;
+            case 3:
+                msj.innerText = 'Today is: Wednesday🧼'
+                break;
+            case 4:
+                msj.innerText = 'Today is: Thursday🛏'
+                break;
+            case 5:
+                msj.innerText = 'Today is: Friday🥵'
+                break;
+            case 6:
+                msj.innerText = 'Today is: Saturday🎉'
+                break;
+            default:
+            msj.innerText = 'Today is: Sunday🛫'
+                break;
+        }
+    </script>
+</body>
+</html>
