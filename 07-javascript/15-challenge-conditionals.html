@@ -13,24 +13,66 @@
             row-gap: 15px;
             column-gap: 15px;
             margin: 10px 0;
-            margin-left: 10px;
+            margin-left: 35px;
             
         }
         section.buttons button {
             border: none;
             cursor: pointer;
-            height: 60px;
-            width: 60px;
+            height: 150px;
+            width: 150px;
             transition: transform 0.2s ease;
         }
         section.buttons button:hover{
-            transform: scale(1.10);
+            transform: scale(1.20);
         }
         section.buttons button.men{
             background: url(images/conditionals/men.svg) no-repeat center;
+            position: relative;
+            margin-left: 20px;
+        }
+        section.buttons button.calculate {
+            background: url(images/conditionals/calculate.svg) no-repeat center;
+            position: relative;
+            height: 77px;
+            width: 302px;
+            top: 400px;
+            margin-left: -242px;
         }
         section.buttons button.women {
             background: url(images/conditionals/women.svg) no-repeat center;
+            position: relative;
+            margin-left: 60px;
+        }
+        header.display{
+            background: url(images/conditionals/nameBar.svg) no-repeat center;
+            width: 340px;
+            height: 50px;
+            left: 310px;
+            top: 280px;
+            margin-left: -265px;
+        }
+        header.display input.date{
+            background: none;
+            border: none;
+            font-size: 20px;
+            font-style: verdana;
+            position: relative;
+            text-align: center;
+            top: 15px;
+            outline: none;
+        }
+        header.display input.name{
+            background: url(images/conditionals/nameBar.svg) no-repeat center;
+            border: none;
+            font-size: 20px;
+            font-style: Verdana;
+            position: relative;
+            text-align: center;
+            top: 40px;
+            outline: none;
+            width: 340px;
+            height: 50px;
         }
     </style>
 </head>
@@ -46,15 +88,41 @@
         </header>
         <section>
             <div class="conditionals">
-                <header>
-
-                </header>
+                    <header class="display">
+                        <input type="date" class="date" placeholder="fecha nacimiento">
+                        <input type="text" class="name" placeholder="Nombre">
+                    </header>
                 <section class="buttons">
                     <button class="men"></button>
                     <button class="women"></button>
+                    <button class="calculate"></button>
                 </section>
             </div>
         </section>
     </main>
+    <script>
+        const valid = document.querySelector("calculate")
+        const woman = document.querySelector("button.woman")
+        const checkHB = document.querySelector("section.checkHB")
+        const checkHG = document.querySelector("section.checkHG")
+        const chackMB = document.querySelector("section.checkMB")
+        const checkMG = document.querySelector("section.checkMG")
+
+        woman.onclick = () => {
+            checkMB.classList.add('ocultar')
+            checkMG.classList.remove('ocultar')
+            checkHG.classList.add('ocultar')
+            checkHB.classList.remove('ocultar')
+
+            valid.onclick = () => {
+                form.classList.add('ocultar')
+                main3.classList.remove('ocultar')
+            }
+            backMNGO.onclick = () => {
+                main3.classList.add('ocultar')
+                form.classList.remove('ocultar')
+            }
+        }
+    </script>
 </body>
 </html>
