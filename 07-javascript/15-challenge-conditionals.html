@@ -129,9 +129,6 @@
             margin: auto;
             padding: 1px;
         }
-        /* main.menGo ,main.womanNo,main.form{
-            display: none;
-        } */
         h1#edadmenGo,h1#edadmenNo,h1#edadwomanNo{
             
             width: 150px;
@@ -139,8 +136,8 @@
             margin-top:380px;
             text-indent: 5px;
             background-color: #333333;
-            border-radius: 10px;
-            border: 1px solid #000000;
+            border-radius: 20px;
+            border: none;
             color: #ffffff99;
             position: absolute;
             font-size: 13px;
@@ -153,8 +150,8 @@
             text-indent: 5px;
             color: #ffffff99;
             background-color: #333333;
-            border-radius: 10px;
-            border: 1px solid #000000;
+            border-radius: 20px;
+            border: none;
             position: absolute;
             font-size: 13px;
         }
@@ -218,7 +215,7 @@
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
                 </svg>
             </a>
-            <h1>Challengue</h1>
+            <h1>Challenge</h1>
         </header>
         <article>
             <section class="information3">
@@ -241,7 +238,7 @@
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
                 </svg>
             </a>
-            <h1>Challengue</h1>
+            <h1>Challenge</h1>
         </header>
         <article class="fondo">
             <header class="gender">
@@ -345,7 +342,7 @@
 
                 if(edadfinal<18){
                     if(nameperson.value.length == 0){
-                    alert('Llene los campos')
+                    alert('Complete los campos')
                     return
                     }
                     nameF = nombre.value
@@ -375,7 +372,7 @@
             
             valid.onclick = () =>{
                 if(nameperson.value.length == 0){
-                    alert('Llene los campos')
+                    alert('Complete los datos')
                     return
                 }
                 form.classList.add('ocultar')
@@ -390,7 +387,6 @@
                 form.classList.remove('ocultar')
             }
         }
-        
     </script>
 </body>
 </html>
