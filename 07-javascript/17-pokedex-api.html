@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Verdana:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        figure.pokedex {
+            background: #d7ddef;
+            border-radius: 40px;
+            height: 702px;
+            left: 8px;
+            position: relative;
+            margin: -8px;
+            top: -90px;
+            width: 422px;
+        }
+        figure.pokedex h4 {
+            color: #d7ddef;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            height: 22px;
+            position: absolute;
+            left: 144px;
+            top: 44px;
+            width: 138px;
+        }
+        figure.pokedex h1 {
+            color: #f9ba17;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            height: 44px;
+            left: 120px;
+            position: absolute;
+            top: 68px;
+            width: 260px;
+        }
+        figure.pokedex h1 span {
+            color: #d7ddef;
+            font-weight: 400;
+        }
+        figure.pokedex img.main {
+            position: absolute;
+            left: -4px;
+            top: 0px;
+        }
+        figure.pokedex button.btn-enter:disabled {
+            cursor: not-allowed !important;
+            filter: grayscale(1);
+        }
+        figure.pokedex button.btn-enter {
+            background: url(images/pokedex/btn-enter.svg) no-repeat center;
+            border: none;
+            height: 61px;
+            left: 20px;
+            position: absolute;
+            top: 615px;
+            text-indent: -9999px;
+            transition: transform 0.2s ease-in;
+            width: 360px;
+        }
+        figure.pokedex button.btn-enter:hover {
+            cursor: pointer;
+            transform: scale(1.03);
+        }
+        figure.pokedex button.btn-back {
+            border: none;
+            left: 24px;
+            top: 48px;
+            height: 16px;
+            position: absolute;
+            text-indent: -9999px;
+            transition: transform 0.2s ease-in;
+            width: 18px;
+        }
+        figure.pokedex button.btn-back:hover {
+            cursor: pointer;
+            transform: translateX(-4px);
+        }
+        figure.pokedex button.btn-white {
+            background: url(images/pokedex/btn-back-white.svg) no-repeat center;
+        }
+        figure.pokedex button.btn-dark {
+            background: url(images/pokedex/btn-back-dark.svg) no-repeat center;
+        }
+        figure.pokedex section#pokemons-container {
+            display: flex;
+            height: 504px;
+            justify-content: center;
+            left: 12px;
+            flex-wrap: wrap;
+            margin: 0px auto;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            position: absolute;
+            top: 172px;
+            padding: 0;
+            width: 400px;
+        }
+        figure.pokedex section#pokemons-container div.card {
+            border-radius: 20px;
+            height: 140px;
+            margin: 4px;
+            position: relative;
+            transition: transform 0.2s ease-in;
+            width: 180px;
+        }
+        figure.pokedex section#pokemons-container div.card:hover {
+            cursor: pointer;
+            transform: scale(1.04);
+        }
+        figure.pokedex section#pokemons-container div.card h2 {
+            background-color: transparent;
+            border-radius: 0;
+            color: #2b3151;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            opacity: 0.5;
+            position: absolute;
+            padding: 0;
+            right: -25px;
+            z-index: 2;
+        }
+        figure.pokedex section#pokemons-container div.card h3 {
+            background-color: transparent;
+            border-radius: 0;
+            color: #fff;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 22px;
+            line-height: 24px;
+            position: absolute;
+            left: -30px;
+            z-index: 2;
+        }
+        figure.pokedex section#pokemons-container div.card ul {
+            list-style: none;
+            padding: 0;
+            position: absolute;
+            top: 30px;
+            z-index: 2;
+        }
+        figure.pokedex section#pokemons-container div.card ul li {
+            background-color: #ffffff44;
+            border-radius: 40px;
+            color: #fff;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            margin: 4px;
+            text-align: center;
+            padding: 4px;
+            width: 80px;
+        }
+        figure.pokedex section#pokemons-container div.card figure {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            z-index: 2;
+        }
+        figure.pokedex section#pokemons-container div.card figure img {
+            width: 90px;
+        }
+        figure.pokedex section#pokemons-container div.card.grass,
+        figure.pokedex.stage03.grass {
+            background-color: #92E686;
+        }
+        figure.pokedex section#pokemons-container div.card.water,
+        figure.pokedex.stage03.water {
+            background-color: #6A98F8;
+        }
+        figure.pokedex section#pokemons-container div.card.fire,
+        figure.pokedex.stage03.fire {
+            background-color: #F8902F;
+        }
+        figure.pokedex section#pokemons-container div.card.normal,
+        figure.pokedex.stage03.normal {
+            background-color: #B7B5AC;
+        }
+        figure.pokedex section#pokemons-container div.card.fighting,
+        figure.pokedex.stage03.fighting {
+            background-color: #D84D4A;
+        }
+        figure.pokedex section#pokemons-container div.card.flying,
+        figure.pokedex.stage03.flying  {
+            background-color: #57C7EC;
+        }
+        figure.pokedex section#pokemons-container div.card.poison,
+        figure.pokedex.stage03.poison  {
+            background-color: #D09BE3;
+        }
+        figure.pokedex section#pokemons-container div.card.electric,
+        figure.pokedex.stage03.electric  {
+            background-color: #AEAF00;
+        }
+        figure.pokedex section#pokemons-container div.card.ground,
+        figure.pokedex.stage03.ground  {
+            background-color: #BF9C4C;
+        }
+        figure.pokedex section#pokemons-container div.card.steel,
+        figure.pokedex.stage03.steel {
+            background-color: #B7B8CD;
+        }
+        figure.pokedex section#pokemons-container div.card.psychic,
+        figure.pokedex.stage03.psychic  {
+            background-color: #F03AA8;
+        }
+        figure.pokedex section#pokemons-container div.card.rock,
+        figure.pokedex.stage03.rock {
+            background-color: #C8A048;
+        }
+        figure.pokedex section#pokemons-container div.card.dark,
+        figure.pokedex.stage03.dark {
+            background-color: #908989;
+        }
+        figure.pokedex section#pokemons-container div.card.ice,
+        figure.pokedex.stage03.ice {
+            background-color: #31d8d1;
+        }
+        figure.pokedex section#pokemons-container div.card.bug,
+        figure.pokedex.stage03.bug {
+            background-color: #9EC687;
+        }
+        figure.pokedex section#pokemons-container div.card.ghost,
+        figure.pokedex.stage03.ghost {
+            background-color: #A56FF8;
+        }
+        figure.pokedex section#pokemons-container div.card.dragon,
+        figure.pokedex.stage03.dragon {
+            background-color: #693bef;
+        }
+        figure.pokedex section#pokemons-container div.card.fairy,
+        figure.pokedex.stage03.fairy {
+            background-color: #f194e8;
+        }
+        ::-webkit-scrollbar{
+            width: 10px;
+        }
+
+        figure.pokedex.stage03 {
+            background: #000 url(images/pokedex/bg-pokeball.svg) no-repeat center 224px;
+        }
+        figure.pokedex.stage03 h1 {
+            color: #2b3151;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            height: 44px;
+            left: 50%;
+            position: absolute;
+            top: 68px;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 260px;
+        }
+        figure.pokedex.stage03 h3 {
+            background-color: transparent;
+            color: #efefef;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            left: 160px;
+            top: 50px;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+        figure.pokedex.stage03 ul {
+            list-style: none;
+            padding: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 160px;
+            z-index: 2;
+        }
+        figure.pokedex.stage03 ul li {
+            background-color: #ffffff44;
+            border-radius: 40px;
+            color: #fff;
+            display: inline-block;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            margin: 4px;
+            text-align: center;
+            padding: 4px;
+            width: 80px;
+        }
+        figure.pokedex.stage03 figure {
+            position: absolute;
+            top: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0;
+            margin: 0;
+        }
+        figure.pokedex.stage03 figure img {
+            width: 200px;
+        }
+        figure.pokedex.stage03 h5 {
+            background: transparent url(images/pokedex/bg-stats.svg) no-repeat left bottom;
+            border-bottom: 1px solid #2b3151;
+            color: #2b3151;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            height: 17px;
+            line-height: 17px;
+            left: 20px;
+            padding-bottom: 6px;
+            position: absolute;
+            top: 402px;
+            width: 360px;
+        }
+        figure.pokedex.stage03 table {
+            position: absolute;
+            left: 20px;
+            top: 480px;
+            width: 360px;
+        
+        }
+        figure.pokedex.stage03 table th,
+        figure.pokedex.stage03 table td {
+            padding: 4px 36px 4px 0px;
+        }
+        figure.pokedex.stage03 table th {
+            color: #fff;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            text-align: left;
+        }
+        figure.pokedex.stage03 table td {
+            color: #2b3151;
+            font-family: Verdana;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        progress {
+            border-radius: 20px; 
+            width: 200px;
+            height: 10px;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #00000033;
+            border-radius: 20px;
+        }
+        progress::-webkit-progress-value {
+            background-color: #fff;
+            border-radius: 20px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Pokedex API</h1>
+        </header>
+        <section>
+            <figure class="pokedex stage01 animate__animated animate__zoomInDown">
+                <h4>Welcome To</h4>
+                <h1>POKEDEX <span>API</span></h1>
+                <img class="main" src="images/pokedex/main.png">
+                <button class="btn-enter" disabled>ENTER</button>
+            </figure>
+            <figure class="pokedex stage02 animate__animated hide">
+                <button class="btn-back btn-white">Back</button>
+                <h1>POKEDEX</h1>
+                <section id="pokemons-container">
+   
+                </section>
+            </figure>
+            <figure class="pokedex stage03 animate__animated hide">
+                <button class="btn-back btn-dark">Back</button>
+                <h1></h1>
+                <h3></h3>
+                <ul></ul>
+                <figure></figure>
+                <h5>Base Stats</h5>
+                <table>
+                    <tr>
+                        <th>HP</th>
+                        <td class="valhp"></td>
+                        <td><progress max="100" class="prohp"></progress></td>
+                    </tr>
+                    <tr>
+                        <th>Attack</th>
+                        <td class="valatt"></td>
+                        <td><progress max="100" class="proatt"></progress></td>
+                    </tr>
+                    <tr>
+                        <th>Defense</th>
+                        <td class="valdef"></td>
+                        <td><progress max="100" class="prodef"></progress></td>
+                    </tr>
+                    <tr>
+                        <th>Sp. Atk</th>
+                        <td class="valsat"></td>
+                        <td><progress max="100" class="prosat"></progress></td>
+                    </tr>
+                    <tr>
+                        <th>Sp. Def</th>
+                        <td class="valsde"></td>
+                        <td><progress max="100" class="prosde"></progress></td>
+                    </tr>
+                    <tr>
+                        <th>Speed</th>
+                        <td class="valspe"></td>
+                        <td><progress max="100" class="prospe"></progress></td>
+                    </tr>
+                </table>
+            </figure>
+        </section>
+    </main>
+
+    <script>
+        // Vars
+        const btnEnter = document.querySelector('.btn-enter');
+        const btnWhite = document.querySelector('.btn-white');
+        const btnDark  = document.querySelector('.btn-dark');
+
+        const stage01  = document.querySelector('.stage01');
+        const stage02  = document.querySelector('.stage02');
+        const stage03  = document.querySelector('.stage03');
+
+        // Functions
+        async function allPokemons() {
+            for (let i = 1; i <= 151; i++) {
+                const res     = await fetch('https://pokeapi.co/api/v2/pokemon/'+i);
+                const pokemon = await res.json();
+                renderAllPokemon(pokemon); 
+            }
+        }
+        async function onePokemon(p) {
+            const res     = await fetch('https://pokeapi.co/api/v2/pokemon/'+p);
+            const pokemon = await res.json();
+            renderPokemon(pokemon); 
+        }
+        function renderAllPokemon(pokeData) {
+            let allPokemonContainer = document.getElementById('pokemons-container');
+            let pokeContainer       = document.createElement("div");
+            let pokeNumber          = document.createElement('h2');
+            let pokeName            = document.createElement('h3');
+            let pokeTypes           = document.createElement('ul');
+            let pokeImg             = document.createElement('figure');
+            let npoke               = null;
+
+            pokeName.innerText      = pokeData.name;
+            if (pokeData.id < 10) {
+                npoke = '00' + pokeData.id;  
+            }
+            if (pokeData.id >= 10 && pokeData.id < 100) {
+                npoke = '0' + pokeData.id; 
+            }
+            if (pokeData.id >= 100) {
+                npoke = pokeData.id; 
+            }
+            pokeNumber.innerText    = '#' + npoke;
+            
+            createTypes(pokeData.types, pokeTypes);
+            createPokeImage(pokeData.id, pokeImg);
+
+            let color = colorType(pokeData.types);
+            pokeContainer.classList.add('card');
+            pokeContainer.classList.add(color);
+
+            pokeContainer.append(pokeNumber, pokeName, pokeTypes, pokeImg);   
+            allPokemonContainer.appendChild(pokeContainer);       
+        }
+        function renderPokemon(pokeData) {
+
+            let npoke        = null;
+            let stage03      = document.querySelector('figure.stage03');
+            let namePokemon  = document.querySelector('figure.stage03 h1');
+            let numbPokemon  = document.querySelector('figure.stage03 h3');
+            let typesPokemon = document.querySelector('figure.stage03 ul');
+            let imagePokemon = document.querySelector('figure.stage03 figure');
+
+            let valhp        = document.querySelector('td.valhp');
+            let prohp        = document.querySelector('progress.prohp');
+            let valatt       = document.querySelector('td.valatt');
+            let proatt       = document.querySelector('progress.proatt');
+            let valdef       = document.querySelector('td.valdef');
+            let prodef       = document.querySelector('progress.prodef');
+            let valsat       = document.querySelector('td.valsat');
+            let prosat       = document.querySelector('progress.prosat');
+            let valsde       = document.querySelector('td.valsde');
+            let prosde       = document.querySelector('progress.prosde');
+            let valspe       = document.querySelector('td.valspe');
+            let prospe       = document.querySelector('progress.prospe');
+
+            if (pokeData.id < 10) {
+                npoke = '00' + pokeData.id;  
+            }
+            if (pokeData.id >= 10 && pokeData.id < 100) {
+                npoke = '0' + pokeData.id; 
+            }
+            if (pokeData.id >= 100) {
+                npoke = pokeData.id; 
+            }
+
+            namePokemon.innerText = pokeData.name
+            numbPokemon.innerText = '#' + npoke;
+
+            valhp.innerText  = pokeData.stats[0].base_stat;
+            prohp.value      = pokeData.stats[0].base_stat;
+            valatt.innerText = pokeData.stats[1].base_stat;
+            proatt.value     = pokeData.stats[1].base_stat;
+            valdef.innerText = pokeData.stats[2].base_stat;
+            prodef.value     = pokeData.stats[2].base_stat;
+            valsat.innerText = pokeData.stats[3].base_stat;
+            prosat.value     = pokeData.stats[3].base_stat;
+            valsde.innerText = pokeData.stats[4].base_stat;
+            prosde.value     = pokeData.stats[4].base_stat;
+            valspe.innerText = pokeData.stats[5].base_stat;
+            prospe.value     = pokeData.stats[5].base_stat;
+
+            let color = colorType(pokeData.types);
+            stage03.classList.remove('grass', 'water', 'fire', 'normal', 'fighting', 'flying', 'poison', 'electric', 'ground', 'psychic', 'rock', 'ice', 'bug', 'ghost', 'dragon', 'fairy');
+            stage03.classList.add(color);
+
+            typesPokemon.innerHTML = "";
+            createTypes(pokeData.types, typesPokemon);
+
+            imagePokemon.innerHTML = "";
+            createPokeBigImage(pokeData.id, imagePokemon);    
+        }
+        function createTypes(types, ul) {
+            types.forEach(function(type) {
+                let typeLi = document.createElement('li');
+                typeLi.innerText = type['type']['name'];
+                ul.append(typeLi);
+            })
+        }
+        function colorType(types) {
+            let color = null;
+            let cont  = 0;
+            types.forEach(function(type) {
+                if (cont == 0) {
+                    color = type['type']['name'];
+                }
+                cont++;
+            });
+            return color;
+        }
+        function createPokeImage(pokeID, img){
+            let pokeImage  = document.createElement('img');
+            let npoke = null;
+
+            if (pokeID < 10) {
+                npoke = '00' + pokeID;  
+            }
+            if (pokeID >= 10 && pokeID < 100) {
+                npoke = '0' + pokeID; 
+            }
+            if (pokeID >= 100) {
+                npoke = pokeID; 
+            }
+            pokeImage.srcset = 'https://www.serebii.net/pokemongo/pokemon/'+npoke+'.png';
+
+            img.append(pokeImage);
+        }
+        function createPokeBigImage(pokeID, img){
+            let pokeImage  = document.createElement('img');
+            let npoke = null;
+
+            if (pokeID < 10) {
+                npoke = '00' + pokeID;  
+            }
+            if (pokeID >= 10 && pokeID < 100) {
+                npoke = '0' + pokeID; 
+            }
+            if (pokeID >= 100) {
+                npoke = pokeID; 
+            }
+            pokeImage.srcset = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'+npoke+'.png';
+
+            img.append(pokeImage);
+        }
+        allPokemons();
+
+        // Events
+        btnEnter.onclick = function() {
+            stage01.classList.remove('animate__zoomInDown');
+            stage01.classList.add('hide');
+            stage02.classList.remove('hide');
+            stage02.classList.add('animate__zoomInDown');
+        }
+        btnWhite.onclick = function() {
+            stage02.classList.remove('animate__zoomInDown');
+            stage02.classList.add('hide');
+            stage01.classList.remove('hide');
+            stage01.classList.add('animate__zoomInDown');
+        }
+        btnDark.onclick = function() {
+            stage03.classList.remove('animate__zoomInDown');
+            stage03.classList.add('hide');
+            stage02.classList.remove('hide');
+            stage02.classList.add('animate__zoomInDown');
+        }
+        setTimeout(function() {
+            const cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].onclick = function() {
+                    onePokemon(i+1);
+                    stage02.classList.remove('animate__zoomInDown');
+                    stage02.classList.add('hide');
+                    stage03.classList.remove('hide');
+                    stage03.classList.add('animate__zoomInDown');
+                }
+            }
+            setTimeout(function() {
+                btnEnter.removeAttribute('disabled');
+            }, 1000);
+        }, 2500);
+        
+    </script>
+</body>
+</html>
