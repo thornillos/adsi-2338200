@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge baloto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        div.ball-oto {
+            background: transparent url(images/baloto/bg.svg) no-repeat center;
+            bottom: 100px;
+            height: 700px;
+            position: relative;
+            width: 420px;
+        }
+        div.ball-oto figure.ball {
+            background: transparent url(images/baloto/ball1.svg) no-repeat center;
+            margin: 0;
+            height: 82px;
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 4.8rem;
+            padding: 0;
+            position: absolute;
+            text-decoration-line: underline;
+            text-align: center;
+            top: 176px;
+            width: 82px;
+        }
+        div.ball-oto figure.ball.hide {
+            visibility: hidden;
+        }
+        div.ball-oto figure.ball.ball1 {
+            left: 25px;
+            top: 350px;
+        }
+        div.ball-oto figure.ball.ball2 {
+            left: 75px;
+            top: 280px;
+        }
+        div.ball-oto figure.ball.ball3 {
+            left: 160px;
+            top: 255px;
+        }
+        div.ball-oto figure.ball.ball4 {
+            left: 245px;
+            top: 280px;
+        }
+        div.ball-oto figure.ball.ball5 {
+            left: 300px;
+            top: 350px;
+        }
+        div.ball-oto figure.ball.ball6 {
+            color: #fff;
+            background: transparent url(images/baloto/sball.svg) no-repeat center;
+            left: 150px;
+            top: 350px;
+            height: 102px;
+            width: 102px;
+        }
+        div.ball-oto button.btn-play {
+            background: url(images/baloto/btn-play.svg) no-repeat center;
+            border: none;
+            bottom: 40px;
+            height: 100px;
+            position: absolute;
+            left: 105px;
+            transition: transform 0.2s ease-in;
+            width: 200px;
+        }
+        div.ball-oto button.btn-play:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        div.ball-oto button.btn-play[disabled] {
+            cursor: not-allowed;
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge baloto</h1>
+        </header>
+        <section>
+            <div class="ball-oto">
+                <figure class="ball ball1 hide animate__animated"></figure>
+                <figure class="ball ball2 hide animate__animated"></figure>
+                <figure class="ball ball3 hide animate__animated"></figure>
+                <figure class="ball ball4 hide animate__animated"></figure>
+                <figure class="ball ball5 hide animate__animated"></figure>
+                <figure class="ball ball6 hide animate__animated"></figure> 
+                <button class="btn-play"></button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Variables
+        const btnPlay = document.querySelector('button.btn-play');
+        const balls   = document.querySelectorAll('figure.ball');
+        const arrballs = new Array;
+		const arrsball = new Array;
+
+        // Events
+        btnPlay.onclick = function() {
+            this.setAttribute('disabled', true);
+            for (let i = 0; i < 43; i++) {
+			    arrballs[i] = i+1;
+            }
+            for (let i = 0; i < 16; i++) {
+                arrsball[i] = i+1;
+            }
+            //console.log(arrballs);
+            for (let i = 0; i < balls.length; i++) {
+                balls[i].classList.add('hide');
+                balls[i].classList.remove('animate__bounceInDown'); 
+                if(i < 5) {
+                    let rn = Math.ceil(Math.random() * arrballs.length);
+                    balls[i].innerText = arrballs[rn-1];
+                    arrballs.splice(rn-1,1);
+                    //console.log(arrballs);
+                } else {
+                    balls[i].innerText = Math.ceil(Math.random() * 16);
+                }             
+            }
+            let i = 0;
+            var sinter = setInterval(function() {
+                if(i < 6) {
+                    balls[i].classList.remove('hide'); 
+                    balls[i].classList.add('animate__bounceInDown'); 
+                } else {
+                    btnPlay.removeAttribute('disabled');
+                    clearInterval(sinter);
+                }
+                i++;
+            }, 250);   
+        }
+    </script>
+</body>
+</html>

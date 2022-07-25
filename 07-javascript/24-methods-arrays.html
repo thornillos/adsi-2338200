@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods arrays</title>
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Methods arrays</h1>
+        </header>
+        <section>
+            <ul class="emojis"></ul>
+        </section>
+    </main>
+    <script>
+        //elements
+        const emojis = document.querySelector('.emojis')
+        //variables & constats
+        const list = ['🐋','🦑','🐡','🦞','🦐']
+        //value of
+        emojis.innerHTML = `<li> <b>valueOF:</b> ${list.valueOf()}</li>`
+        //string
+        emojis.innerHTML += `<li> <b>String:</b> ${list.toString()}</li>`
+        //join
+        emojis.innerHTML += `<li> <b>Join:</b> ${list.join('🦭')}</li>`
+        //sort
+        emojis.innerHTML += `<li> <b>sort:</b> ${list.sort()}</li>`
+        //reverse
+        emojis.innerHTML += `<li> <b>reverse:</b> ${list.reverse()}</li>`
+        // pop (delete last one)
+        list.pop()
+        emojis.innerHTML += `<li> <b>pop (delete last one):</b> ${list}</li>`
+        // shift (delete first one)
+        list.shift()
+        emojis.innerHTML += `<li> <b>shift (delete firts one):</b> ${list}</li>`
+        // push (add last one)
+        list.push('🐚')
+        emojis.innerHTML += `<li> <b>push (pushlast one):</b> ${list.valueOf()}</li>`
+        // unshift (add first one)
+        list.unshift('🐠')
+        emojis.innerHTML += `<li> <b>unshift (add last one):</b> ${list.valueOf()}</li>`
+        //slice (extract range)
+        //let animals = list.slice(1, 3)
+        emojis.innerHTML += `<li> <b>slice (extract range (1,3)):</b> ${list.slice(1, 3)}</li>`
+        //splite (delete position)
+        emojis.innerHTML += `<li> <b>splice (delete position (2,1)):</b> ${list.splice(2, 1)}</li>`
+    </script>
+</body>
+</html>
