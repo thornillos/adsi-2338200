@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Arrays</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        figure.vectors {
+            background: transparent url(images/vectors/bg.svg) no-repeat center;
+            height: 703px;
+            width: 440px;
+            margin-top: -100px;
+            margin-left: -10px;
+        }
+        figure.vectors h2 {
+            background-color: transparent;
+            color: #fff;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 18px;
+            left: -30px;
+            margin-top: 0px;
+            position: relative;
+        }
+        figure.vectors h2:nth-child(1) {
+            top: 100px;
+        }
+        figure.vectors h2:nth-child(3) {
+            top: 25px;
+        }
+        figure.vectors ul.mugiwara {
+            height: 250px;
+            list-style: none;
+            left: 25px;
+            position: relative;
+            padding: 0;
+            top: 100px;
+            width: 400px;
+        }
+        figure.vectors ul.mugiwara li.mg {
+            display: inline-block;
+            height: 76px;
+            filter: grayscale(1);
+            transition: all 0.2s ease-in;
+            width: 78px;
+        }
+        figure.vectors ul.mugiwara li.mg:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+            filter: grayscale(0);
+        }
+        figure.vectors ul.mugiwara li.mg.mg1,
+        ul.show-vector li.mg1  {
+            background: transparent url(images/vectors/mg1.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg2,
+        ul.show-vector li.mg2 {
+            background: transparent url(images/vectors/mg2.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg3,
+        ul.show-vector li.mg3 {
+            background: transparent url(images/vectors/mg3.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg4,
+        ul.show-vector li.mg4 {
+            background: transparent url(images/vectors/mg4.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg5,
+        ul.show-vector li.mg5 {
+            background: transparent url(images/vectors/mg5.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg6,
+        ul.show-vector li.mg6 {
+            background: transparent url(images/vectors/mg6.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg7,
+        ul.show-vector li.mg7 {
+            background: transparent url(images/vectors/mg7.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.mg8,
+        ul.show-vector li.mg8 {
+            background: transparent url(images/vectors/mg8.svg) no-repeat center;
+            height: 90px;
+            width: 90px;
+        }
+        figure.vectors ul.mugiwara li.mg.selected {
+            transform: scale(1.2);
+            filter: grayscale(0);
+        }
+        figure.vectors div.switch {
+            border: 1px solid #fff;
+            box-sizing: border-box;
+            border-radius: 40px;
+            cursor: pointer;
+            height: 40px;
+            left: 30px;
+            position: relative;
+            top: 50px;
+            width: 100px;
+        }
+        figure.vectors div.switch span {
+            color: #fff;
+            font-family: Montserrat;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        figure.vectors div.switch span.right {
+            position: relative;
+            top: 10px;
+            right: -20px;
+        }
+        figure.vectors div.switch span.left {
+            position: relative;
+            top: 10px;
+            left: 6px;
+        }
+        figure.vectors div.switch span.hide {
+            display: none;
+        }
+        figure.vectors div.switch.action {
+            top: 10px;
+            left: 140px;
+        }
+        figure.vectors div.switch div.circle {
+            background: url(images/vectors/meramera.svg);
+            border-radius: 15px;
+            height: 35px;
+            position: relative;
+            top: -19px;
+            left: 0px;
+            transition: left 0.2s ease-in;
+            width: 35px;
+        }
+        figure.vectors div.switch.checked div.circle {
+            left: 60px;
+        }
+        figure.vectors button {
+            border: none;
+            bottom: 4px;
+            position: relative;
+            height: 96px;
+            left: 230px;
+            transition: all 0.2s ease-in;
+            width: 96px;
+            top: -55px;
+        }
+        figure.vectors button:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        figure.vectors button#btn-add {
+            background: transparent url(images/vectors/btn-add.svg) no-repeat center;
+        }
+        figure.vectors button#btn-remove {
+            background: transparent url(images/vectors/btn-remove.svg) no-repeat center;
+        }
+        figure.vectors input {
+            background: none;
+            border: 1px solid #fff;
+            border-radius: 40px;
+            color: #fff;
+            font-family: Montserrat;
+            font-weight: 400;
+            font-size: 14px;
+            height: 34px;
+            left: 250px;
+            outline: none;
+            position: relative;
+            text-align: center;
+            top: -100px;
+            width: 97px;
+        }
+        ul.show-vector {
+            list-style: none;
+            margin: 40px auto;
+            padding: 0;
+            position: relative;
+            width: 390px;
+            top: -300px;
+        }
+        ul.show-vector li {
+            display: inline-block;
+            height: 76px;
+            transition: all 0.2s ease-in;
+            width: 78px;
+        }
+        ul.show-vector li i {
+            background-color: #222850;
+            border-radius: 16px;
+            color: #000;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 12px;
+            font-style: normal;
+            display: block;
+            height: 16px;
+            padding: 4px;
+            text-align: center;
+            width: 16px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span>Arrays</h1>
+        </header>
+        <section>
+            <figure class="vectors">
+                <h2>1. Selecciona Pirata:</h2>
+                <ul class="mugiwara">
+                    <li class="mg mg1 animate__animated"></li>
+                    <li class="mg mg2 animate__animated"></li>
+                    <li class="mg mg3 animate__animated"></li>
+                    <li class="mg mg4 animate__animated"></li>
+                    <li class="mg mg5 animate__animated"></li>
+                    <li class="mg mg6 animate__animated"></li>
+                    <li class="mg mg7 animate__animated"></li>
+                    <li class="mg mg8 animate__animated"></li>
+                </ul>
+                <h2>2. Opciones:</h2>
+                <div class="switch position">
+                    <span class="right">---Primero</span>
+                    <span class="left hide">Ultimo</span>
+                    <div class="circle"></div>
+                </div>
+                <div class="switch action">
+                    <span class="right">---Agregar</span>
+                    <span class="left hide">Quitar</span>
+                    <div class="circle"></div>
+                </div>
+                <input class="num-position" type="number" min="0" max="99">
+                <button id="btn-add"></button>
+            </figure>
+            <ul class="show-vector">
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Variables & Constants
+        const mugiwara   = document.querySelectorAll('li.mg');
+        const switches   = document.querySelectorAll('div.switch');
+        const txtLeft    = document.querySelectorAll('span.left');
+        const txtRight   = document.querySelectorAll('span.right');
+        const btn        = document.querySelector('button');
+        var   numPos     = document.querySelector('input.num-position');
+        var   showVector = document.querySelector('ul.show-vector');
+        var   mgArray    = [];
+
+        // Object
+        var vector = {
+            // Attributes
+            mgSelected: null,
+            posCheked: 'First',
+            actCheked: 'Add',
+            // Methods
+            clicksSwitches: function() {
+                for (let i = 0; i < switches.length; i++) {
+                    switches[i].onclick = function() {
+                        this.classList.toggle('checked');
+                        txtLeft[i].classList.toggle('hide');
+                        txtRight[i].classList.toggle('hide');
+                        if (i == 0) {
+                            if (txtRight[0].classList.contains('hide')) {
+                                vector.posCheked = 'Last';
+                            } else {
+                                vector.posCheked = 'First';
+                            }
+                        } else {
+                            if (txtRight[1].classList.contains('hide')) {
+                                vector.actCheked = 'Remove';
+                                btn.setAttribute('id', 'btn-remove');
+                            } else {
+                                vector.actCheked = 'Add';
+                                btn.setAttribute('id', 'btn-add');
+                            }
+                        }
+                    };
+                }
+            },
+            clicksmugiwara: function() {
+                for (let i = 0; i < mugiwara.length; i++) {
+                    mugiwara[i].onclick = function() {
+                        vector.removeSelected();
+                        this.classList.add('selected');
+                        this.classList.add('animate__heartBeat');
+                        vector.mgSelected = (i+1);
+                    };
+                }
+            },
+            removeSelected: function() {
+                for (let i = 0; i < mugiwara.length; i++) {
+                    mugiwara[i].classList.remove('selected');
+                    mugiwara[i].classList.remove('animate__heartBeat');
+                }
+            },
+            renderVector: function() {
+                if(this.mgSelected == null) {
+                    alert('Porfavor escoje un mugiwara!');
+                } else {
+                    // Logic
+                    if(numPos.value.length < 1) {
+                        if (vector.posCheked == 'First') {
+                            if (vector.actCheked == 'Add') {
+                                mgArray.unshift('mg' + vector.mgSelected); // Add First
+                            } else {
+                                mgArray.shift(); // Remove First
+                            }
+                        } else {
+                            if (vector.actCheked == 'Add') {
+                                mgArray.push('mg' + vector.mgSelected); // Add Last
+                            } else {
+                                mgArray.pop(); // Remove Last
+                            }
+                        }
+                    } else {
+                        if (vector.actCheked == 'Add') {
+                            mgArray.splice(numPos.value, 0, 'mg' + vector.mgSelected); // Add Pos
+                        } else {
+                            mgArray.splice(numPos.value, 1); // Remove Pos
+                        }
+                    }
+                    //  Render Array
+                    showVector.innerHTML = "";
+                    for (let i = 0; i < mgArray.length; i++) {
+                        showVector.innerHTML += "<li class='animate__animated animate__rubberBand "+ mgArray[i] +"'> <i>" + i + "</i></li>"; 
+                    }
+                }
+            }
+        }
+        vector.clicksmugiwara();
+        vector.clicksSwitches();
+
+        // Action
+        btn.onclick = function() {
+            vector.renderVector();
+        }
+
+    </script>
+    
+</body>
+</html>
