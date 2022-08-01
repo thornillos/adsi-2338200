@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events time</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <style>
+        section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            gap: 1rem;
+            justify-content: center;
+        }
+        input,
+        button {
+            border: none;
+            border-radius: 4px;
+            outline: blue;
+            padding: 10px;
+            font-family: Verdana;
+            font-size: 0.8rem;
+        }
+        button {
+            background-color: #aa0;
+            cursor: pointer;
+        }
+        img.silverSurfer {
+            position: absolute;
+            top: 240px;
+            left: 150px;
+            transition: all 0.2s linear;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+            </a>
+            <h1>Events time</h1>
+        </header>
+        <section>
+            <div class="control">
+                <input type="number" class="count-down" placeholder="Time in seconds">
+                <button class="btn-count">Count down</button>
+            </div>
+            <div class="control">
+                <input type="number" class="refresh-page" placeholder="Time in seconds">
+                <button class="btn-refresh">Refresh Page</button>
+            </div>
+            <h3>use arrows keys to move character</h3>
+            <img src="images/silverSurfer.png" class="silverSurfer">
+        </section>
+    </main>
+    <script>
+        //elements
+        const count_down = document.querySelector('.count-down')
+        const refresh_page = document.querySelector('.refresh-page')
+        const btn_count = document.querySelector('.btn-count')
+        const btn_refresh = document.querySelector('.btn-refresh')
+        const silverSurfer = document.querySelector('.silverSurfer')
+
+        //events (setInterval)
+        btn_count.addEventListener('click', (e) => {
+            if (count_down.value.length > 0) {
+                let count = parseInt(count_down.value)
+                let s_int = setInterval(() => {
+                    if (count ==0) {
+                        clearInterval(s_int)
+                        alert('time is over')
+                    } else {
+                        count_down.value = count
+                    }
+                    count--
+                },1000)
+            } else {
+                alert('please, enter time in seconds')
+            }
+        })
+        // (setTimeout)
+        btn_refresh.addEventListener('click', (e) => {
+            if (refresh_page.value.length > 0){
+                let refresh = parseInt(refresh_page.value) * 1000
+                let s_tout = setTimeout(() => {
+                    //window.location.replace('26-events-time.html')
+                    window.location.reload()
+                }, refresh)
+            } else {
+                alert('please, enter time in seconds')
+            }
+        })
+        // Events Arrows Key
+        var lpos = 150
+        var tpo = 275
+        window.addEventListener('keyup', (e) =>{
+            console.log(e.keyCode)
+            if (e.keyCode == 37) { //left
+                if(lpos >= 25) {
+                lpos -= 25
+                silverSurfer.style.transform ='rotateY(-180deg)'
+                silverSurfer.style.left = lpos + 'px'
+                }
+            }
+            if (e.keyCode == 39) { //right
+                if(lpos <= 300) {
+                lpos += 25
+                silverSurfer.style.transform ='rotateY(0deg)'
+                silverSurfer.style.left = lpos + 'px'
+                }
+            }
+            if (e.keyCode == 40) { //down
+                if(lpos <= 500) {
+                lpos += 25
+                silverSurfer.style.top = lpos + 'px'
+                }
+            }
+            if (e.keyCode == 38) { //up
+                if(lpos <= -200) {
+                lpos -= 25
+                silverSurfer.style.top = lpos + 'px'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
