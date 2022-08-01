@@ -34,6 +34,12 @@
             left: 150px;
             transition: all 0.2s linear;
         }
+        div.digital {
+            color: #aa0;
+            font-size: 5rem;
+            font-family: Verdana;
+            margin-top: 180px;
+        }
         
     </style>
 </head>
@@ -67,6 +73,7 @@
         const btn_count = document.querySelector('.btn-count')
         const btn_refresh = document.querySelector('.btn-refresh')
         const silverSurfer = document.querySelector('.silverSurfer')
+        const digital = document.querySelector('.digital')
 
         //events (setInterval)
         btn_count.addEventListener('click', (e) => {
@@ -96,6 +103,12 @@
             } else {
                 alert('please, enter time in seconds')
             }
+        })
+        //digital clock
+        setInterval(() => {
+            let currentTime = new Date()
+            let formattedTime = currentTime.toLocateTimeString()
+            digital.textContent = formattedTime
         })
         // Events Arrows Key
         var lpos = 150
