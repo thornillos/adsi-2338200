@@ -103,7 +103,7 @@
 								</ul>';
 							break;
 					}
-				?>
+				?>  
         </div>
     </div>
     </main>
