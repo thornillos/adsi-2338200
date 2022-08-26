@@ -5,50 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selectors</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
     <style>
-        button {
-            background-color: #376daa;
-            border: 4px solid #1e4168;
-            border-radius: 10px;
-            display: block;
-            color: #fff;
-            cursor: pointer;
-            font-size: 2rem;
-            margin: 40px auto;
-            padding: 40px;
-            transition: transform 0.2s ease-in;
-        }
-        button:hover {
-            transform: scale(1.1);
-        }
-        button:active {
-            background-color: #4f9664;
+        .display-1 {
+            font-size: 8rem;
         }
     </style>
 </head>
 <body>
-    <main>
-        <header>
-            <h1> <span><a href="index.html">&larr;</a></span> Selectors</h1>
-        </header>
-        <section>
-           <button class="btn">
-               Count Double Clicks: 0
-           </button>
-        </section>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card text-center my-5">
+                  <div class="card-body">
+                    <nav class="breadcrumb">
+                        <a class="breadcrumb-item" href="index.html" on>&larr; Main Menu</a>
+                        <span class="breadcrumb-item active" aria-current="page"><b>Selectors</b></span>
+                    </nav>
+                    <hr>
+                    <section class="card-text d-flex justify-content-center align-items-center my-5">
+                            <button class="btn btn-danger btn-remove">-</button>
+                            <h2 class="display-1 mx-3">0</h2>
+                            <button class="btn btn-success btn-add">+</button>
+                    </section>
+                  </div>
+                </div>
+            </div>
+        </div>
     </main>
-
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $count = 0;
-            $('button.btn').dblclick(function() {
-                $count++;
-                $(this).text('Count Double Clicks: ' + $count);
-            });
-        });
+            $count = 0
+            // Add
+            $('.btn-add').click(function(e) {
+                $('h2').text(++$count)
+            })
+            $('.btn-add').dblclick(function(e) {
+                $('h2').text($count += 10)
+            })
+            // Remove
+            $('.btn-remove').click(function(e) {
+                $('h2').text(--$count)
+            })
+            $('.btn-remove').dblclick(function(e) {
+                $('h2').text($count -= 10)
+            })
+        })
     </script>
-    
 </body>
 </html>

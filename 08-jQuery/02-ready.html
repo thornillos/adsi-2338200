@@ -6,37 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready Function</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/fonts.css">
 </head>
 <body>
-    <main class="container">  
+    <main class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">   
-                <div class="card text-start my-5">              
-                    <div class="card-body">
-                        <nav class="breadcrumb">
-                            <a class="breadcrumb-item" href="index.html">Main Menu (jQuery)</a>
-                            <span class="breadcrumb-item active" aria-current="page">Ready Function</span>
-                        </nav>
-                        <hr>
-                        <h3 class="card-title">Ready Function</h3>
-                        <section class="card-text">
-
-                        </section>
-                    </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="card text-center my-5">
+                  <div class="card-body">
+                    <nav class="breadcrumb">
+                        <a class="breadcrumb-item" href="index.html">&larr; Main Menu</a>
+                        <span class="breadcrumb-item active" aria-current="page"><b>Ready Function</b></span>
+                    </nav>
+                    <hr>
+                    <section class="card-text">
+                        <h3 class="my-5"></h3>
+                    </section>
+                  </div>
                 </div>
             </div>
-        </div>                   
+        </div>
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
-        //large
-        $(document).ready(function(){
-            $('h3').html('<i>jQuery</i> is Ready!')
+        // large
+        $(document).ready(function() {
+            $('h3').html('<i>jQuery</i> is Ready 😎')
         })
-        //short
+
+        // Short
         $(function () {
-            $('h3').after('<p>The document was loaded</p>')
+            $('h3').after('<p>The document was loaded!</p>')
         })
     </script>
 </body>
