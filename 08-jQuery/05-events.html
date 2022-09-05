@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <style>
+        body {
+            transition: 0.5 all ease-in;
+        }
+        figure {
+            background-color: #F8902F;
+            border: 2px solid #F8902F;
+            border-radius: 20px;
+            color: #fff;
+            filter: grayscale(1);
+            width: 260px;
+            margin: 10px auto;
+            transition: all 0.5s ease-in;
+            overflow: hidden;
+        }
+        figure.actived {
+            filter: grayscale(0);
+        }
+        figure img {
+            object-fit: cover;
+        }
+        figure figcaption {
+            background-color: #F8902F;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        output {
+            width: 99.6%;
+        }
+        svg {
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card text-center my-5">
+                  <div class="card-body">
+                    <nav class="breadcrumb">
+                        <a class="breadcrumb-item" href="index.html">&larr; Main Menu</a>
+                        <span class="breadcrumb-item active" aria-current="page"><b>events</b></span>
+                    </nav>
+                    <hr>
+                    <section class="card-text">
+                        <h2>Mouse Events</h2>
+                        <figure>
+                            <img src="images/Torchic1.webp">
+                            <figcaption>Torchic</figcaption>
+                        </figure>
+                        <h2 class="mt-5">Keyboard Events</h2>
+                        <input type="text" class="form-control" placeholder="Enter Text">
+                        <output class="message text-start alert alert-primary my-3"></output>
+                        <h2 class="mt-5">Form Events</h2>
+                        <select class="form-select">
+                            <option value="">Select Background Color...</option>
+                            <option value="1">Red</option>
+                            <option value="2">Green</option>
+                            <option value="3">Blue</option>
+                        </select>
+                        <h2 class="mt-5">Window Events</h2>
+                        <small class="d-block">Resize your Window</small>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                          </svg>
+                          
+                    </section>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //mouse events
+            $('figure').mouseenter(function (evt) {
+                evt.preventDefault()
+                $(this).addClass('actived')
+            })
+            $('figure').mouseleave(function (evt) {
+                evt.preventDefault()
+                $(this).removeClass('actived')
+            })
+            //Keyboard events
+            $('input').focus(function (evt) {
+                evt.preventDefault()
+                /* $(this).css('border', '2px solid red') */
+                $(this).removeClass('is-invalid')
+                $(this).addClass('is-valid')
+            })
+            $('input').blur(function (evt) {
+                evt.preventDefault()
+                $(this).removeClass('is-valid')
+                $(this).addClass('is-invalid')
+            })
+            $('input').keyup(function (evt) {
+                evt.preventDefault()
+                $('.message').text($(this).val())
+            })
+            //form events
+            $('select').change(function (evt) {
+                evt.preventDefault()
+                if($(this).val() == '1') {
+                    $('body').css('background-color', '#900')
+                    $('h2').css('color', '#900')
+                }
+                if($(this).val() == '2') {
+                    $('body').css('background-color', '#090')
+                    $('h2').css('color', '#090')
+                }
+                if($(this).val() == '3') {
+                    $('body').css('background-color', '#009')
+                    $('h2').css('color', '#009')
+                }
+            })
+            //Window Events
+            $wIcon = 160
+            $(window).resize(function (evt) {
+                $wDocument = $(document).width()
+                if ($wDocument < 1400 && $wDocument > 560) {
+                    $wIcon += 4
+                } else {
+                    $wIcon -4
+                }
+                $wIcon += 2
+                $('svg').css('width', $wIcon + 'px')
+            })
+        })
+    </script>
+</body>
+</html>
