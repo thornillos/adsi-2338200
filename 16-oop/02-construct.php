@@ -63,7 +63,7 @@
                     }
                     public function getPlayList() {
                         for ($i = 0 ; $i < count($this->artist) ; $i++) {
-                            echo '<ul>';
+                            echo '<ul class="mb-4 flex flex-col justify-center rounded ring-1 ring-white/25 p-4">';
                             echo '<li> <strong> Artist: </strong> '.$this->artist[$i].'</li>';
                             echo '<li> <strong> Album: </strong> '.$this->album[$i].'</li>';
                             echo '<li> <strong> Image: </strong> <img src="'.$this->image[$i].'"widht="80px"></li>';
