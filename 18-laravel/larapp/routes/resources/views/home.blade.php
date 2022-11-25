@@ -16,10 +16,12 @@
                 Dashboard
             </header>
 
-            <div class="w-full p-6">
-                <p class="text-gray-700">
-                    You are logged in!
-                </p>
+            <div class="w-full p-6 flex lg:flex-row flex-col items-center gap-8 my-6">
+                {{-- --}}
+                <div class="bg-white rounded-lg shadow 2xl lg:flex lg:max-w-leg">
+                    <img src="{{ asset('images/mod-users.png') }}" class="w-1/1 lg:w-1/2 rounded-l-2xl">
+                    <div class="p-6 flex gap-4 fo"></div>
+                </div>
             </div>
         </section>
     </div>
